@@ -62,4 +62,5 @@ const loadData = async () => {
             }
         });
     }
+    
 }
