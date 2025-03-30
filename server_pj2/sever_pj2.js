@@ -39,6 +39,13 @@ const validateData = (employeeData) => {
     if (!employeeData.action) {
         errors.push('กรุณาเลือกการกระทำ')
     }
+    if (!employeeData.date ) {
+        errors.push('กรุณาเลือกวันที่')
+    }
+    if (!employeeData.timestart || !employeeData.timeend) {
+        errors.push('กรุณากรอกเวลาให้ครบ');
+    }
+    
     return errors;
 }
 
