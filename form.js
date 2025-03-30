@@ -66,6 +66,16 @@ const validateData = (employeeData) => {
     if (!employeeData.action) {
         errors.push('กรุณาเลือกการกระทำ')
     }
+    if (!employeeData.timestart) {
+        errors.push('กรุณาเลือกเวลาเริ่มต้น');
+    }
+    if (!employeeData.timeend) {
+        errors.push('กรุณาเลือกเวลาสิ้นสุด');
+    }
+    if (employeeData.timestart >= employeeData.timeend) {
+        errors.push('เวลาเริ่มต้นต้องน้อยกว่าเวลาสิ้นสุด');
+    }
+    
     return errors;
 }
 
