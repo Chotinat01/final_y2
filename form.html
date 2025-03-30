@@ -3,43 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="form.css">
     <title>Document</title>
 </head>
 <body>
+    <div class="navbar">
+        <div class="menubar">  
+            <a href="form.html" class="menu">Form</a>
+            <a href="user.html" class="menu">User</a>
+            <a href="" class="menu">About</a>
+            <a href="" class="menu">List</a>
+            <a href="" class="menu">Login</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="header">
+        <div>
+            <div class="headerform">ชื่อ</div>
+            <input name="firstname" type="text" placeholder="Firstname" required>
+        </div>
+        <div>
+            <div class="headerform">นามสกุล</div>
+            <input name="lastname" type="text" placeholder="Lastname" required>
+        </div>
+        <div>
+            <div class="headerform">อายุ</div>
+            <input name="age" type="number" placeholder="Age" required>
+        </div>
+        <div>
+            <div class="headerform">เพศ </div>
+            <input name="gender" type="radio" value="ชาย">ชาย 
+            <input name="gender" type="radio" value="หญิง">หญิง 
+            <input name="gender" type="radio" value="อื่นๆ">อื่นๆ
+        </div>
+        <div>
+            <div class="headerform">ทำอะไร</div> 
+            <input name="action" type="radio" value="ทำงาน">ทำงาน 
+            <input name="action" type="radio" value="ลางาน">ลางาน 
+        </div>
 
-    <div>
-        ชื่อ
-        <input name="firstname" type="text" placeholder="Firstname" required>
-    </div>
-    <div>
-        นามสกุล
-        <input name="lastname" type="text" placeholder="Lastname" required>
-    </div>
-    <div>
-        อายุ
-        <input name="age" type="number" placeholder="Age" required>
-    </div>
-    <div>
-        เพศ
-        <input name="gender" type="radio" value="ชาย">ชาย 
-        <input name="gender" type="radio" value="หญิง">หญิง
-        <input name="gender" type="radio" value="อื่นๆ">อื่นๆ
-    </div>
-    <div>
-        ทำอะไร
-        <input name="action" type="radio" value="ทำงาน">ทำงาน
-        <input name="action" type="radio" value="ลางาน">ลางาน
+        <div>
+            <div class="headerform">วัน</div>
+            <input name="date" type="date" required>
+        </div>
+        <div>
+            <div class="headerform">เวลา</div>
+            <input name="timestart" type="time" required>
+            ถึง
+            <input name="timeend" type="time" required>
+        </div>
+        
+        <div id="message"></div>
+        
+        <div>
+            <button onclick="submitData()" class="buttom">ส่งข้อมูล</button>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+        <script src="form.js"></script>
+    
+        </div>
     </div>
     
-    <div id="message"></div>
     
-    <div>
-        <button onclick="submitData()" class="buttom">ส่งข้อมูล</button>
-    </div>
-
-    <button onclick="window.location.href='user.html'">user</button>
     
-    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
-    <script src="form.js"></script>
 </body>
 </html>

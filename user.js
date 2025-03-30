@@ -9,23 +9,29 @@ const loadData = async () => {
     const response = await axios.get(`${BASE_URL}/employees`);
     console.log(response.data);
 
-    const employeeDOM = document.getElementById('employee'); // ต้องมี <div id="employee"></div> ใน HTML
+    const employeeDOM = document.getElementById('employee');
 
-    let htmlData = '<table>';  // เริ่มต้นการสร้างตาราง
+    let htmlData = '<table border="1">';
     htmlData += `
         <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Action</th>
             <th>Age</th>
             <th>Gender</th>
+            <th>Action</th>
+            <th>Date</th>
+            <th>TimeStart</th>
+            <th>TimeEnd</th>
             <th class="balance" colspan="2">Modify</th>
         </tr>
     `;
 
-    // สร้างแถวตารางสำหรับข้อมูลแต่ละแถว
     for (let i = 0; i < response.data.length; i++) {
         let employee = response.data[i];
+        let formattedDate = new Date(employee.date).toLocaleDateString('th-TH'); // Format date
+        let StartTime = employee.timestart.slice(0, 5); // Format time
+        let EndTime = employee.timeend.slice(0, 5); // Format time
+
         htmlData += `
             <tr>
                 <td>${employee.id}</td>
@@ -33,7 +39,9 @@ const loadData = async () => {
                 <td>${employee.age}</td>
                 <td>${employee.gender}</td>
                 <td>${employee.action}</td>
-
+                <td>${formattedDate}</td>
+                <td>${StartTime}</td>
+                <td>${EndTime}</td> 
                 <td>
                     <a href='form.html?id=${employee.id}'>
                         <button>Edit</button>
@@ -46,21 +54,20 @@ const loadData = async () => {
         `;
     }
     htmlData += '</table>';
-    employeeDOM.innerHTML = htmlData; // ใส่ข้อมูลตารางลงใน DOM
+    employeeDOM.innerHTML = htmlData;
 
-    // ลบข้อมูลเมื่อคลิกปุ่ม delete
-    const deleteDOMs = document.querySelectorAll('.delete'); // ใช้ querySelectorAll เพื่อเลือกปุ่ม delete ทุกปุ่ม
+    const deleteDOMs = document.querySelectorAll('.delete');
     for (let i = 0; i < deleteDOMs.length; i++) {
         deleteDOMs[i].addEventListener('click', async (event) => {
-            // ดึง id ของ user ที่ต้องการลบ
             const id = event.target.dataset.id;
-            try {
-                await axios.delete(`${BASE_URL}/employees/${id}`);
-                loadData(); // โหลดข้อมูลใหม่หลังจากลบเสร็จ
-            } catch (error) {
-                console.log('error', error);
+            if (confirm("คุณต้องการลบข้อมูลนี้ใช่หรือไม่?")) {
+                try {
+                    await axios.delete(`${BASE_URL}/employees/${id}`);
+                    loadData();
+                } catch (error) {
+                    console.log('error', error);
+                }
             }
         });
     }
-    
 }

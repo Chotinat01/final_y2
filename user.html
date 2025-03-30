@@ -3,15 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="user.css">
     <title>Document</title>
 </head>
 <body>
-    <div class="header">User management page</div>
+    <div class="navbar">
+        <div class="menubar">  
+            <a href="form.html" class="menu">Form</a>
+            <a href="user.html" class="menu">User</a>
+            <a href="" class="menu">About</a>
+            <a href="" class="menu">List</a>
+            <a href="" class="menu">Login</a>
+        </div>
+    </div>
 
+    <div class="header">User management page</div>
     <div id="employee"></div>
     <script src="user.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
     
-    <button onclick="window.location.href='form.html'">form</button>
 </body>
 </html>

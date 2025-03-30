@@ -18,11 +18,15 @@ window.onload = async () => {
             let firstNameDOM = document.querySelector('input[name=firstname]');
             let lastNameDOM = document.querySelector('input[name=lastname]');
             let ageDOM = document.querySelector('input[name=age]');
+            let timestartDOM = document.querySelector('input[name=timestart]');
+            let timeendDOM = document.querySelector('input[name=timeend]');
             
 
             firstNameDOM.value = employee.firstname
             lastNameDOM.value = employee.lastname
             ageDOM.value = employee.age
+            timestartDOM.value = employee.timestart.slice(0, 5) // Format time
+            timeendDOM.value = employee.timeend.slice(0, 5) // Format time
             
 
             let genderDOMs = document.querySelectorAll('input[name=gender]') ;
@@ -71,13 +75,14 @@ const submitData = async () => {
     let ageDOM = document.querySelector('input[name=age]');
     let genderDOM = document.querySelector('input[name=gender]:checked') || {};
     let actionDOM = document.querySelector('input[name=action]:checked') || {};
-    //let dateDOM = document.querySelector('input[name=date]');
-    //let timeDOM = document.querySelector('input[name=time]');
+    let dateDOM = document.querySelector('input[name=date]');
+    let timestartDOM = document.querySelector('input[name=timestart]');
+    let timeendDOM = document.querySelector('input[name=timeend]');
     //let causeDOM = document.querySelector('textarea[name=cause]');
 
     let messageDOM = document.getElementById('message');
 
-    try {
+try {  
         
         /*let interest = ''
         for (let i = 0; i < interestDOMs.length; i++) {
@@ -87,14 +92,17 @@ const submitData = async () => {
             }
         }*/
 
+    
+
         let employeeData = {
             firstName: firstNameDOM.value,
             lastName: lastNameDOM.value,
             age: ageDOM.value,
             gender: genderDOM.value,
             action: actionDOM.value,
-            //date: dateDOM.value,
-            //time: timeDOM.value,
+            date: dateDOM.value,
+            timestart: timestartDOM.value,
+            timeend: timeendDOM.value,
             //cause: causeDOM.value,
             //interest: interest
         }
