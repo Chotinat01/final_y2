@@ -1,3 +1,5 @@
+const BASE_URL = 'http://localhost:8600'
+/*
 document.getElementById('login-form').addEventListener('submit', function(event) {
     event.preventDefault(); // ป้องกันการรีเฟรชหน้า
 
@@ -12,3 +14,35 @@ document.getElementById('login-form').addEventListener('submit', function(event)
         alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง");
     }
 });
+*/
+
+const cheack_info = async () => {
+        // ดึงค่าผู้ใช้/รหัสผ่านจากฟอร์ม
+        const codename = document.getElementById("codename").value;
+        const password = document.getElementById("password").value;
+    
+        try {
+        // ส่งข้อมูลไปที่ server
+        const response = await axios.post(`${BASE_URL}/login`, {
+            codename, password
+        });
+    
+        // ตรวจสอบผลลัพธ์จากเซิฟเวอร์
+        if (response.data.success) {
+            alert('Login successful');
+            window.location.href = 'list.html'; // ไปหน้า admin
+            }else {
+            console.log('Invalid credentials:', response.data.message);
+            alert('Invalid codename or password!');
+        }
+        } catch (error) {
+        console.error('Error login:', error);
+        alert('Username or password is incorrect. Please try again.');
+        }
+    }
+    
+    // Event listener สำหรับฟอร์ม login
+    document.getElementById("loginForm").addEventListener("submit", async function(event) {
+        event.preventDefault(); // ป้องกันการรีเฟรชหน้า
+        await cheack_info(); // เรียกใช้ฟังก์ชัน cheack_info() เพื่อทำการล็อกอิน
+    });

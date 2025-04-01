@@ -143,7 +143,7 @@ app.listen(port, async (req, res) => {
         console.error('Error during MySQL connection:', error.message);
     }
 });
-/*------------------------------------------login--------------------------------------------------*/ 
+/*------------------------------------------Register--------------------------------------------------*/ 
 
 let accounts = []
 const validateDataAccounts = (accountData) => {
@@ -188,3 +188,40 @@ app.post('/accounts', async (req, res) => {
         })
     }
 })
+
+/*-----------------------------------------login-----------------------------------*/
+
+app.post('/login', async (req, res) => {
+    const { codename, password } = req.body;
+
+    // ตรวจสอบ input จาก client
+    if (!codename || !password) {
+        return res.status(400).json({ message: 'Codename and password are required' });
+    }
+    
+    try {
+        console.log("Received data:", { codename, password });
+
+        // ทดสอบ Query
+        const [user] = await conn.query('SELECT * FROM accounts WHERE codename = ? AND password = ?', [codename, password]);
+
+        console.log("Query result:", user);
+
+        if (user.length === 0) {
+            return res.status(401).json({ message: 'Invalid credentials' });
+        }
+
+        return res.json({
+            success: true,
+            message: 'Login successful',
+        });
+
+    } catch (error) {
+        console.error('Error login: ', error); // แสดงรายละเอียด Error ใน Console
+        res.status(500).json({
+            success: false,
+            message: 'Internal server error',
+            error: error.message // ส่งข้อความ Error ไปให้ Client
+        });
+    }
+});
