@@ -198,14 +198,14 @@ app.post('/login', async (req, res) => {
     if (!codename || !password) {
         return res.status(400).json({ message: 'Codename and password are required' });
     }
-    
+
     try {
-        console.log("Received data:", { codename, password });
+       
 
         // ทดสอบ Query
         const [user] = await conn.query('SELECT * FROM accounts WHERE codename = ? AND password = ?', [codename, password]);
 
-        console.log("Query result:", user);
+            
 
         if (user.length === 0) {
             return res.status(401).json({ message: 'Invalid credentials' });
