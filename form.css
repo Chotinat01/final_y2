@@ -32,23 +32,28 @@ body{
     background-color: white; 
     color: black; 
     border-radius: 10px; 
-    border-bottom: 3px solid blue; 
+    border-bottom: 3px solid blue;
+    transform: scale(1.05); 
+    transition: transform 0.3s; 
 }
 .menu-login{
     margin-left: auto;
 }
-
+.form{
+    margin-top: 100px;
+    text-align: center;
+    font-size: 50px;}
 
 .container{
     width: 600px;
     max-width: 640px;
     margin-left: auto;
     margin-right: auto;
-    background-color: pink;
+    background-color: #3433;
     padding: 20px;
-    box-shadow: 10px 10px 5px orange;
+    box-shadow: 10px 10px 5px pink  ;
     border-radius: 20px;
-    margin-top: 90px;
+    margin-top: 20px;
 }
 .header{
     text-align:;
