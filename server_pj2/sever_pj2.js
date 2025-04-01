@@ -200,17 +200,11 @@ app.post('/login', async (req, res) => {
     }
 
     try {
-       
-
         // ทดสอบ Query
         const [user] = await conn.query('SELECT * FROM accounts WHERE codename = ? AND password = ?', [codename, password]);
-
-            
-
         if (user.length === 0) {
             return res.status(401).json({ message: 'Invalid credentials' });
         }
-
         return res.json({
             success: true,
             message: 'Login successful',

@@ -3,31 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Account</title>
-    <link rel="stylesheet" href="">
+    <title>Register</title>
+    <link rel="stylesheet" href="register.css">
 </head>
 <body>
-    <div>
-        <div class="">Codename</div>
-        <input name="codename" type="text">
-    </div>
-    <div>
-        <div class="">Password</div>
-        <input name="password" type="text">
-    </div>
-    <div>
-        <div class="">Email</div>
-        <input name="email" type="text">
-    </div>
-    <div>
-        <div class="">Tel</div>
-        <input name="tel" type="text">
+    <div class="register-container">
+        <div class="logo-container">
+            <img src="picture/hoyoverse-logo.png" alt="Logo" class="logo">
+        </div>
+        <form id="registerForm">
+            <h2>สมัครสมาชิก</h2>
+            <div class="input-group">
+                <label for="codename">Codename</label>
+                <input type="text" id="codename" name="codename" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <div class="password-container">
+                    <input type="password" id="password" name="password" required>
+                    <span class="toggle-password" onclick="togglePassword()">👁️</span>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="input-group">
+                <label for="tel">Phone Number</label>
+                <input type="tel" id="tel" name="tel" required>
+            </div>
+
+            <button type="submit">Register</button>
+            <a href="login.html">เข้าสู่ระบบ</a>
+        </form>
     </div>
 
-    <div id="message"></div>
-    
-    <button onclick="submitData()">สมัครสมาชิก</button>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
     <script src="register.js"></script>
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById("password");
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+        }
+    </script>
 </body>
 </html>

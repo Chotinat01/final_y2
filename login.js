@@ -17,32 +17,40 @@ document.getElementById('login-form').addEventListener('submit', function(event)
 */
 
 const cheack_info = async () => {
-        // ดึงค่าผู้ใช้/รหัสผ่านจากฟอร์ม
-        const codename = document.getElementById("codename").value;
-        const password = document.getElementById("password").value;
-    
-        try {
+    // ดึงค่าผู้ใช้/รหัสผ่านจากฟอร์ม
+    const codename = document.getElementById("codename").value;
+    const password = document.getElementById("password").value;
+
+    try {
         // ส่งข้อมูลไปที่ server
         const response = await axios.post(`${BASE_URL}/login`, {
-            codename, password
+            codename, 
+            password
         });
-    
-        // ตรวจสอบผลลัพธ์จากเซิฟเวอร์
+
+        // ตรวจสอบผลลัพธ์จากเซิร์ฟเวอร์
         if (response.data.success) {
             alert('Login successful');
-            window.location.href = 'list.html'; // ไปหน้า admin
-            }else {
+            
+            // เพิ่มเงื่อนไขการเปลี่ยนหน้า
+            if (codename === "maping") {
+                window.location.href = 'user.html'; // ไปหน้า user.html
+            } else {
+                window.location.href = 'list.html'; // ไปหน้า list.html
+            }
+
+        } else {
             console.log('Invalid credentials:', response.data.message);
             alert('Invalid codename or password!');
         }
-        } catch (error) {
+    } catch (error) {
         console.error('Error login:', error);
         alert('Username or password is incorrect. Please try again.');
-        }
     }
-    
-    // Event listener สำหรับฟอร์ม login
-    document.getElementById("loginForm").addEventListener("submit", async function(event) {
-        event.preventDefault(); // ป้องกันการรีเฟรชหน้า
-        await cheack_info(); // เรียกใช้ฟังก์ชัน cheack_info() เพื่อทำการล็อกอิน
-    });
+}
+
+// Event listener สำหรับฟอร์ม login
+document.getElementById("loginForm").addEventListener("submit", async function(event) {
+    event.preventDefault(); // ป้องกันการรีเฟรชหน้า
+    await cheack_info(); // เรียกใช้ฟังก์ชัน cheack_info() เพื่อทำการล็อกอิน
+});
