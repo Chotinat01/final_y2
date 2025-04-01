@@ -143,3 +143,48 @@ app.listen(port, async (req, res) => {
         console.error('Error during MySQL connection:', error.message);
     }
 });
+/*------------------------------------------login--------------------------------------------------*/ 
+
+let accounts = []
+const validateDataAccounts = (accountData) => {
+    let errors = []
+    if (!accountData.codeName) {
+        errors.push('กรุณากรอกโค้ดเนม')
+    }
+    if (!accountData.passWord) {
+        errors.push('กรุณาสร้างรหัสผ่าน')
+    }
+    if (!accountData.email) {
+        errors.push('กรุณากรอกอีเมล')
+    }
+    if (!accountData.tel) {
+        errors.push('กรุณากรอกเบอร์โทรศัพท์')
+    }
+    return errors;
+}
+
+app.post('/accounts', async (req, res) => {
+    try{
+        let account = req.body;
+        const errors = validateDataAccounts(account);
+        if(errors.length > 0){
+            throw {  
+                message: 'กรุณากรอกข้อมูลให้ครบถ้วน', 
+                errors: errors 
+            }
+        }
+        const results = await conn.query('INSERT INTO accounts SET ?', account)
+        res.json({
+            message: 'Create user successfully',
+            data: results[0]
+        })
+    }catch(error){
+        const errorMessage = error.message || 'something went wrong'
+        const errors = error.errors || []
+        console.error('error message ', error.message)
+        res.status(500).json({
+            message: errorMessage,
+            errors: errors
+        })
+    }
+})

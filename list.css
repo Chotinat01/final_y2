@@ -10,6 +10,7 @@
     top: 0;
     right: 0;
     //border-bottom: 2px solid #333; 
+    z-index: 1000; // ทำให้อยู่ด้านหน้าสุด
 }
 .menubar {
     display: flex;
@@ -40,26 +41,64 @@
 .header {
     padding-top: 100px;  //เพิ่มระยะห่างให้พอเหมาะจาก navbar 
     //text-align: center;
-    //margin: 20px;
+    margin-left: 50px;
     font-size: 30px;
-    border-radius: 16px;
+    //border-radius: 16px;
 }
+
 
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
+    box-shadow: 0px 4px 8px rgba(175, 221, 232, 0.8);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 15px 20px;
 }
 
 th {
-    background-color:rgb(182, 195, 201);
-    color: black;
-    padding: 20px;
+    background-color: #1F75FE;
+    color:rgb(255, 255, 255);
+    font-weight: bold;
 }
-td{
-    padding: 20px;
-    //border: 1px solid #ddd;;
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+tr:hover {
+    background-color: #F0E68C;//#e0e0e0
+    transition: background-color 0.3s;
+}
+
+td {
+    border-bottom: 1px solid #ddd;
+}
+
+th:first-child, td:first-child {
+    border-top-left-radius: 10px;
+}
+
+th:last-child, td:last-child {
+    border-top-right-radius: 10px;
+}
+
+th:last-child {
+    border-bottom-right-radius: 10px;
+}
+
+th:first-child {
+    border-bottom-left-radius: 10px;
 }
 

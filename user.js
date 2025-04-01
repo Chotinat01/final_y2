@@ -43,7 +43,7 @@ const loadData = async () => {
                 <td>${StartTime}</td>
                 <td>${EndTime}</td> 
                 <td>
-                    <a href='form.html?id=${employee.id}'>
+                    <a href='form.html?id=${employee.id}' class="edit">
                         <button>Edit</button>
                     </a>
                 </td>

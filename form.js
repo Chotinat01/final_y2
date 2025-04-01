@@ -4,7 +4,6 @@ let mode = 'CREATE';
 let selectedID = '';
 
 window.onload = async () => {
-    
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id');
     console.log('id', id);
@@ -51,7 +50,6 @@ window.onload = async () => {
 
 const validateData = (employeeData) => {
     let errors = [] 
-
     if (!employeeData.firstName) {
         errors.push('กรุณากรอกชื่อ')
     }

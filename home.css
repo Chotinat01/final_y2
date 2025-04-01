@@ -10,6 +10,7 @@
     top: 0;
     right: 0;
     //border-bottom: 2px solid #333; 
+    z-index: 1000; // ทำให้อยู่ด้านหน้าสุด
 }
 .menubar {
     display: flex;
@@ -36,4 +37,8 @@
 }
 .menu-login{
     margin-left: auto;
+}
+
+.container1 {
+    margin-top: 100px;
 }
