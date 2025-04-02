@@ -4,17 +4,18 @@ body{
 .navbar {
     width: 100%;
     height: 50px;
-    background: linear-gradient(to right, black 85%,  red 15%); 
+    background: linear-gradient(to right, black 85%, red 15%);
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
-    padding: 10px 20px ;
+    padding: 10px 20px;
     position: fixed;
     top: 0;
     right: 0;
-    //border-bottom: 2px solid #333;
-    z-index: 1000; // ทำให้อยู่ด้านหน้าสุด
+    z-index: 1000;
+    overflow: visible; // ต้องเป็น visible เพื่อให้ dropdown แสดงได้ 
 }
+
 .menubar {
     display: flex;
     gap: 20px;
@@ -32,15 +33,62 @@ body{
 .menu:hover {
     background-color: white; 
     color: black; 
-    border-radius: 10px; 
+    border-radius: 10px;
+    border-bottom: 3px solid blue; 
+}
+
+.menu-dropdown {
+    position: relative; /* ทำให้ "List" คงอยู่ที่เดิม */
+    z-index: 1000;
+}
+.menu-dropdown .menu {
+    text-decoration: none;
+    font-size: 20px;
+    color: gray;
+    padding: 20px;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 10px;
+    display: inline-block; //ทำให้ปุ่ม "List" ไม่ขยับ 
+}
+
+.menu-dropdown:hover .menu {
+    background-color: white;
+    color: black;
+    border-radius: 10px;
     border-bottom: 3px solid blue;
-    transform: scale(1.05); 
-    transition: transform 0.3s; 
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute; /* หรือเปลี่ยนเป็น fixed ถ้ายังมีปัญหา */
+    background-color: #f9f9f9;
+    min-width: 160px;
+    z-index: 9999; // ให้มันสูงกว่าส่วนอื่น 
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    left: 0;
+    top: 100%; // ให้มันออกมาจากเมนูหลัก 
+}
+
+.menu-dropdown:hover .dropdown-content {
+    display: block;
+}
+.submenu {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    z-index: 1000; /* เพิ่ม z-index ให้อยู่ด้านบนสุด */
+    background-color:rgb(237, 242, 234);
+}
+.submenu:hover {
+    background-color: #ddd;
 }
 
 .menu-login{
     margin-left: auto;
 }
+
 .form{
     margin-top: 100px;
     text-align: center;

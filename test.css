@@ -1,0 +1,14 @@
+.parent {
+    position: relative; /* พาเรนต์ใช้ relative */
+    width: 200px;
+    height: 200px;
+    background-color: lightblue;
+}
+
+.child {
+    position: absolute; // จะอ้างอิงจาก parent 
+    top: 20px;
+    left: 50px;
+    background-color: coral;
+    padding: 10px;
+}

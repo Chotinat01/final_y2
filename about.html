@@ -5,21 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="about.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
     <title>About</title>
 </head>
 <body>
     <div class="navbar">
         <div class="menubar"> 
             <a href="home.html" class="menu">Home</a>
-            <a href="form.html" class="menu">Form</a>
-            <a href="list.html" class="menu">List</a>
+            <div class="menu-dropdown"> 
+                <a href="list.html" class="menu">Form</a>
+                <div class="dropdown-content">
+                    <a href="form.html" class="submenu">Form Work</a>
+                    <a href="form.html" class="submenu">Form Leave</a>
+                </div>
+            </div>
+            <div class="menu-dropdown"> 
+                <a href="list.html" class="menu">List</a>
+                <div class="dropdown-content">
+                    <a href="listuserleave.html" class="submenu">User Work</a>
+                    <a href="listuserwork.html" class="submenu">User Leave</a>
+                </div>
+            </div>
             <a href="about.html" class="menu">About</a>
         </div>
         <a href="login.html" class="menu menu-login">Log in <i class="bi bi-person-circle"></i></a>
     </div>
+    
 
     <div class="header">
-        <div class="head">Welcome To MyWebsite</div>
+        <div class="head">Welcome to my Website</div>
     </div>
     
     <div class="content">
@@ -46,20 +60,40 @@
         <img src="picture/form.png" class="picture2">
         <p class="p2">เพียงเท่านี้ ข้อมูลของคุณก็จะถูกบันทึกไว้แล้ว</p>
     </div>
+    <div>ประโยชน์</div>
     <div class="content3">
         <h1>ผู้สร้าง</h1>
         <div class="detail3">
             <p>นายโชติณัช <br>
                 โสภาแปง</p>
-            <img src="picture/me.jpg" class="picture3">
+            <div class="image-container">
+                <button class="prev-btn" onclick="prevImage()">❮</button>
+                <img src="picture/me3.jpg" class="picture3" id="creator-image">
+                <button class="next-btn" onclick="nextImage()">❯</button>
+            </div>
             <p>รหัสนิสิต <br>
                 6621600828
             </p>
         </div>
     </div>
+    
+    <footer class="footer">
+        <div class="t1-footer">
 
-    <nav class="navbottom"></nav>
+        </div>
+        <div class="t2-footer">
+            <h1>ติดต่อเรา</h1>
+            <p>Email: chotinat.s@ku.th</p>
+            <p>Tel: 01-012-1234</p>
+            <p>Line: @DoOrBye</p>
+            <p>Monday-Thursday 10.00-17.00</p>
+        </div>
 
+
+    </footer>
+    
+
+    <script src="about.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
     
 </body>

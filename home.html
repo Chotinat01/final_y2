@@ -9,12 +9,23 @@
     <title>Leave List</title>
 </head>
 <body>
-    <!-- Navbar -->
     <div class="navbar">
         <div class="menubar"> 
             <a href="home.html" class="menu">Home</a>
-            <a href="form.html" class="menu">Form</a>
-            <a href="list.html" class="menu">List</a>
+            <div class="menu-dropdown"> 
+                <a href="list.html" class="menu">Form</a>
+                <div class="dropdown-content">
+                    <a href="form.html" class="submenu">Form Work</a>
+                    <a href="form.html" class="submenu">Form Leave</a>
+                </div>
+            </div>
+            <div class="menu-dropdown"> 
+                <a href="list.html" class="menu">List</a>
+                <div class="dropdown-content">
+                    <a href="listuserleave.html" class="submenu">User Work</a>
+                    <a href="listuserwork.html" class="submenu">User Leave</a>
+                </div>
+            </div>
             <a href="about.html" class="menu">About</a>
         </div>
         <a href="login.html" class="menu menu-login">Log in <i class="bi bi-person-circle"></i></a>
@@ -29,9 +40,15 @@
         <p>หรือ</p><h1>ลา</h1>
     </div>
     <div class="headact">คุณมาทำอะไรวันนี้?</div>
-    <div class="action-buttons">
-        <a href="form.html" class="btn-large">ทำงาน</a>
-        <a href="form.html" class="btn-large">ลา</a>
+    <div class="action-container">
+        <a href="dowork.html" class="action-card">
+            <i class="bi bi-person-workspace"></i>
+            <span>ทำงาน</span>
+        </a>
+        <a href="leave.html" class="action-card">
+            <i class="bi bi-person-x"></i>
+            <span>ลางาน</span>
+        </a>
     </div>
 
     <script src="leave.js"></script>

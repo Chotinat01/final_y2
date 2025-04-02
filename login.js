@@ -22,7 +22,6 @@ const cheack_info = async () => {
     const password = document.getElementById("password").value;
 
     try {
-        // ส่งข้อมูลไปที่ server
         const response = await axios.post(`${BASE_URL}/login`, {
             codename, 
             password
