@@ -94,7 +94,9 @@ body {
 .menu-login{
     margin-left: auto;
 }
-
+.lim{
+    writing-mode: vertical-rl;  
+}
 /* Header */
 .header {
     margin-top: 100px;
@@ -186,4 +188,25 @@ body {
 .action-card span {
     font-size: 1.2rem;
     font-weight: bold;
+}
+.footer {
+    margin-top: 200px;
+    color: white;
+    padding: 20px;
+    background-image: linear-gradient(to right, red, pink, black);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: center;
+}
+
+.t1-footer, .t2-footer {
+    margin-left: 100px;
+    flex: 1;
+}
+.logo {
+    width: 100px;
+}
+.t2-footer {
+    padding-left: 20px;
 }

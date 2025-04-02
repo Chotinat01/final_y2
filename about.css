@@ -273,13 +273,13 @@
     animation: fadeInFromBottom 1s ease-in-out;
 }
 .prev-btn, .next-btn {
-    background-color: red;
+    background-color: #568203;
     width: 50px;
     height: 30px;
     border-radius: 30px;
 }
 .prev-btn:hover, .next-btn:hover {
-    background-color: pink;
+    background-color: #81D8D0;
     cursor: pointer;
     transform: scale(1.1); // ขยายการ์ดให้ใหญ่ขึ้น 10% 
     transition: transform 0.3s ease-in-out; // เพิ่มการเปลี่ยนแปลงแบบนุ่มนวล
@@ -287,13 +287,27 @@
 
 
 .footer {
+    margin-top: 200px;
     color: white;
-    padding: 10px;
-    background-color: blue; 
+    padding: 20px;
+    background-image: linear-gradient(to right, red, pink, black);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: center;
+}
+
+.t1-footer, .t2-footer {
+    margin-left: 100px;
+    flex: 1;
+}
+.logo {
+    width: 100px;
 }
 .t2-footer {
-
+    padding-left: 20px;
 }
+
 
 
 
