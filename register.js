@@ -47,7 +47,7 @@ const validateDataAccounts= (accountData) => {
     return errors;
 }
 
-const submitData = async () => {
+const submitDataAcc = async () => {
     let codeNameDOM = document.querySelector('input[name=codename]');
     let passWordDOM = document.querySelector('input[name=password]');
     let emailDOM = document.querySelector('input[name=email]');

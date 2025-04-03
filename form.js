@@ -87,22 +87,10 @@ const submitData = async () => {
     let dateDOM = document.querySelector('input[name=date]');
     let timestartDOM = document.querySelector('input[name=timestart]');
     let timeendDOM = document.querySelector('input[name=timeend]');
-    //let causeDOM = document.querySelector('textarea[name=cause]');
 
     let messageDOM = document.getElementById('message');
 
 try {  
-        
-        /*let interest = ''
-        for (let i = 0; i < interestDOMs.length; i++) {
-            interest += interestDOMs[i].value
-            if (i != interestDOMs.length - 1) {
-                interest += ','
-            }
-        }*/
-
-    
-
         let employeeData = {
             firstName: firstNameDOM.value,
             lastName: lastNameDOM.value,
@@ -113,7 +101,6 @@ try {
             timestart: timestartDOM.value,
             timeend: timeendDOM.value,
             //cause: causeDOM.value,
-            //interest: interest
         }
         console.log('submitData', employeeData);
 

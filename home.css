@@ -1,7 +1,7 @@
-/* General Styling */
+
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f7f9fc;
+    background-color:rgb(246, 248, 251);
     margin: 0;
     padding: 0;
 }
@@ -25,7 +25,7 @@ body {
     display: flex;
     gap: 20px;
     justify-content: center; 
-    flex-grow: 1;
+    flex-grow: 1; /*ทุกไอเทมจะขยายให้เท่ากันโดยการแบ่งพื้นที่ที่เหลือ */
 }
 .menu {
     text-decoration: none;
@@ -43,8 +43,8 @@ body {
 }
 
 .menu-dropdown {
-    position: relative; /* ทำให้ "List" คงอยู่ที่เดิม */
-    z-index: 1000;
+    position: relative; /* ทำให้List คงอยู่ที่เดิม */
+    z-index: 1000; //ไวหน้าสุด
 }
 .menu-dropdown .menu {
     text-decoration: none;
@@ -65,14 +65,14 @@ body {
 
 .dropdown-content {
     display: none;
-    position: absolute; /* หรือเปลี่ยนเป็น fixed ถ้ายังมีปัญหา */
+    position: absolute; /*ติดอยู่กับเมนู*/
     background-color: #f9f9f9;
-    min-width: 160px;
+    min-width: 160px; //ขนาดขั้นต่ำ
     z-index: 9999; // ให้มันสูงกว่าส่วนอื่น 
     border-radius: 5px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     left: 0;
-    top: 100%; // ให้มันออกมาจากเมนูหลัก 
+    top: 100%; // ให้มันออกมาอยู่ใต้เมนูหลัก 
 }
 
 .menu-dropdown:hover .dropdown-content {
@@ -95,9 +95,11 @@ body {
     margin-left: auto;
 }
 .lim{
-    writing-mode: vertical-rl;  
+    writing-mode: vertical-rl;  /*เปลี่ยนทิศทางการเขียนให้เป็นแนวตั้งจากขวาไปซ้าย */
 }
-/* Header */
+
+
+
 .header {
     margin-top: 100px;
     text-align: center;
@@ -107,11 +109,11 @@ body {
 .header h1 {
     font-size: 36px;
     color: #333;
-    font-weight: bold;
+    font-weight: bold; /*กำหนดให้ข้อความเป็นตัวหนา*/
     margin-bottom: 20px;
 }
 
-/* Detail Section */
+
 .detail1 {
     margin: 20px 0px;
     text-align: center;
@@ -162,7 +164,7 @@ body {
     width: 400px;
     height: 200px;
     border-radius: 15px;
-    box-shadow: 0px 8px 8px rgba(33, 89, 201, 0.1);
+    box-shadow: 0px 8px 8px rgba(33, 89, 201, 0.4);
     display: flex;
     flex-direction: column;
     align-items: center;

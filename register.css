@@ -2,12 +2,12 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /*รวม padding และ border ไว้ในขนาดของ Element ทำให้คำนวณขนาดได้แม่นยำ*/
     font-family: Arial, sans-serif;
 }
 
 body {
-    background-color: #f0f0f0;
+    background: linear-gradient(to right, #e4cee6, #82bdda, #aa56d6);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -75,6 +75,23 @@ input[type="password"] {
     position: absolute;
     right: 10px;
     cursor: pointer;
+}
+
+.message {
+    margin: 20px 0px 20px 0px;;
+    padding: 30px;
+    background-color: lightgray;
+    display: none;
+    border-radius:10px;
+}
+.message.success {
+    background-color: lightgreen;
+    display: block;
+}
+
+.message.danger {
+    background-color: lightcoral;
+    display: block;
 }
 
 button {

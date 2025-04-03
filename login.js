@@ -1,7 +1,7 @@
 const BASE_URL = 'http://localhost:8600'
 /*
 document.getElementById('login-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // ป้องกันการรีเฟรชหน้า
+    event.preventDefault();
 
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
@@ -15,17 +15,22 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     }
 });
 */
-
+function togglePassword() {
+    const passwordInput = document.getElementById("password");
+    // สลับการแสดงผลรหัสผ่าน
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+    } else {
+        passwordInput.type = "password";
+    }
+}
 const cheack_info = async () => {
-    // ดึงค่าผู้ใช้/รหัสผ่านจากฟอร์ม
+    // ดึงค่าผู้ใช้ รหัสผ่านจากฟอร์ม
     const codename = document.getElementById("codename").value;
     const password = document.getElementById("password").value;
 
     try {
-        const response = await axios.post(`${BASE_URL}/login`, {
-            codename, 
-            password
-        });
+        const response = await axios.post(`${BASE_URL}/login`, {codename, password});
 
         // ตรวจสอบผลลัพธ์จากเซิร์ฟเวอร์
         if (response.data.success) {
@@ -33,14 +38,14 @@ const cheack_info = async () => {
             
             // เพิ่มเงื่อนไขการเปลี่ยนหน้า
             if (codename === "maping") {
-                window.location.href = 'user.html'; // ไปหน้า user.html
+                window.location.href = 'user.html'; 
             } else {
-                window.location.href = 'list.html'; // ไปหน้า list.html
+                window.location.href = 'list.html'; 
             }
 
         } else {
             console.log('Invalid credentials:', response.data.message);
-            alert('Invalid codename or password!');
+            alert('Codename or Password wrong!');
         }
     } catch (error) {
         console.error('Error login:', error);

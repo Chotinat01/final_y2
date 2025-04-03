@@ -99,7 +99,7 @@ body{
     max-width: 640px;
     margin-left: auto;
     margin-right: auto;
-    background-color: #3433;
+    background-color: #3433; /*เทามืด*/
     padding: 20px;
     box-shadow: 10px 10px 5px pink  ;
     border-radius: 20px;
@@ -110,8 +110,7 @@ body{
     font-size: 20px;
 }
 .headerform{
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 10px 0px;
 }
 input[type="text"] {
     width: 80%;
@@ -123,7 +122,7 @@ input[type="text"] {
 input[type="number"] {
     width: 80%;
     padding: 10px;
-    border: none;
+    border: none; /*ขอบออก*/
     background: #f1f1f1;
     border-radius: 5px;
 }
@@ -140,7 +139,23 @@ input[type="time"]{
     background: #f1f1f1;
     border-radius: 5px;
 }
+.message {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: lightgray;
+    display: none;
+    border-radius:10px;
+}
 
+.message.success {
+    background-color: lightgreen;
+    display: block;
+}
+
+.message.danger {
+    background-color: lightcoral;
+    display: block;
+}
 
 .submit {
     background-color: #4CAF50; /* Green */

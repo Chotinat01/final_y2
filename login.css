@@ -1,4 +1,4 @@
-/* รีเซ็ตสไตล์ */
+
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: #f0f0f0;
+    background: linear-gradient(to right, #e4cee6, #82bdda, #aa56d6);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,10 +15,10 @@ body {
 }
 
 .login-container {
-    background-color: #ffffff;
+    background-color: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 15px rgba(156, 62, 14, 0.72);
     width: 350px;
 }
 
@@ -33,13 +33,13 @@ body {
 
 form {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; //คลอลัมแนวตั้งเรียง
 }
 
 h2 {
     text-align: center;
     margin-bottom: 20px;
-    color: #333;
+    color: #333; //เทขเ้ม
 }
 
 .input-group {
@@ -61,7 +61,7 @@ input {
 }
 
 .password-container {
-    position: relative;
+    position: relative; /*วางอยู่ด้านขวาสุด*/
     display: flex;
     align-items: center;
 }

@@ -47,5 +47,5 @@ const loadData = async () => {
     htmlData += '</table>';
     employeeDOM.innerHTML = htmlData;
 
-    const deleteDOMs = document.querySelectorAll('.delete');
+    //const deleteDOMs = document.querySelectorAll('.delete');
 }
