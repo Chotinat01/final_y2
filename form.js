@@ -79,6 +79,7 @@ const validateData = (employeeData) => {
 }
 
 const submitData = async () => {
+    //ให้พวก ข้างล่างนี้รับข้อมูลจากหน้าที่กรอก
     let firstNameDOM = document.querySelector('input[name=firstname]');
     let lastNameDOM = document.querySelector('input[name=lastname]');
     let ageDOM = document.querySelector('input[name=age]');
@@ -91,6 +92,7 @@ const submitData = async () => {
     let messageDOM = document.getElementById('message');
 
 try {  
+    //
         let employeeData = {
             firstName: firstNameDOM.value,
             lastName: lastNameDOM.value,

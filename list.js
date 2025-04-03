@@ -7,7 +7,7 @@ window.onload = async () => {
 const loadData = async () => {
     console.log('user page loaded');
     const response = await axios.get(`${BASE_URL}/employees`);
-    console.log(response.data);
+    console.log(response.data); //ข้อมูลที่ได้จาก API
 
     const employeeDOM = document.getElementById('employee');
 
@@ -28,8 +28,8 @@ const loadData = async () => {
     for (let i = 0; i < response.data.length; i++) {
         let employee = response.data[i];
         let formattedDate = new Date(employee.date).toLocaleDateString('th-TH'); // Format date
-        let StartTime = employee.timestart.slice(0, 5); // Format time
-        let EndTime = employee.timeend.slice(0, 5); // Format time
+        let StartTime = employee.timestart.slice(0, 5); // Format time ตัดข้อความของเวลา ให้เหลือแค่ HH:MM เท่านั้น
+        let EndTime = employee.timeend.slice(0, 5); // Format time ตัดข้อความของเวลา ให้เหลือแค่ HH:MM เท่านั้น
 
         htmlData += `
             <tr>

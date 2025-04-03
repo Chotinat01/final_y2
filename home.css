@@ -197,7 +197,7 @@ body {
     padding: 20px;
     background-image: linear-gradient(to right, red, pink, black);
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /*ถูกวางเรียงกัน*/
     align-items: flex-start;
     text-align: center;
 }

@@ -30,6 +30,7 @@ window.onload = async () => {
     }
 }
 
+//ดักกรอกข้อมูลไม่ครบ
 const validateDataAccounts= (accountData) => {
     let errors = []
     if (!accountData.codeName) {    

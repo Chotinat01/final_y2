@@ -15,6 +15,7 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     }
 });
 */
+/*
 function togglePassword() {
     const passwordInput = document.getElementById("password");
     // สลับการแสดงผลรหัสผ่าน
@@ -24,6 +25,9 @@ function togglePassword() {
         passwordInput.type = "password";
     }
 }
+*/
+
+
 const cheack_info = async () => {
     // ดึงค่าผู้ใช้ รหัสผ่านจากฟอร์ม
     const codename = document.getElementById("codename").value;
@@ -31,16 +35,14 @@ const cheack_info = async () => {
 
     try {
         const response = await axios.post(`${BASE_URL}/login`, {codename, password});
-
         // ตรวจสอบผลลัพธ์จากเซิร์ฟเวอร์
         if (response.data.success) {
             alert('Login successful');
-            
             // เพิ่มเงื่อนไขการเปลี่ยนหน้า
             if (codename === "maping") {
-                window.location.href = 'user.html'; 
+                window.location.href = 'user.html'; //ไปหน้าuser
             } else {
-                window.location.href = 'list.html'; 
+                window.location.href = 'list.html'; //ไปหน้าlist
             }
 
         } else {

@@ -188,6 +188,10 @@
             })
         }
     })
+    app.get('/accounts', async (req, res) => {
+        const results = await conn.query('SELECT * FROM accounts');
+        res.json(results[0])
+    })  
 
     /*-----------------------------------------login-----------------------------------*/
 
